@@ -1,0 +1,27 @@
+int sensorpin=A0;
+int ledpin=2;
+int buzzer=4;
+int const sensorvalue=500;
+void setup(){
+    pinMode(A0,INPUT);
+pinMode(2, OUTPUT);
+    pinMode(4,OUTPUT);
+    Serial.begin(9600);
+}
+void loop(){
+    int sensorvalue=analogRead(A0);
+    Serial.print("sensorvalue:");
+    Serial.print(sensorvalue);
+    if(sensorvalue<500)
+    {
+        Serial.print("Rain Detected!..");
+digitalWrite(2, HIGH);
+        digitalWrite(4,HIGH);
+    }
+    else{
+        Serial.print("No Rain");
+digitalWrite(2, LOW);
+        digitalWrite(4,LOW);
+    }
+delay(1000) ;
+}
